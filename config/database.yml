@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  pool:    5
+  timeout: 5000
+
+local_credentials: &local_credentials
+  username: postgres
+  password:
+
+development:
+  <<: *default
+  <<: *local_credentials
+  database: test_api_scaffold_development
+  host: 127.0.0.1
+  port: 5432
+
+test:
+  <<: *default
+  <<: *local_credentials
+  database: test_api_scaffold_test
+  host: 127.0.0.1
+  port: 5432
